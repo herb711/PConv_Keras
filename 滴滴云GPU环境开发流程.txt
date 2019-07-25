@@ -1,0 +1,14 @@
+滴滴云GPU环境开发流程
+
+启动conda环境
+cd /home/dc2-user/anaconda3/bin
+. ./activate
+
+
+复制文件目录到云端
+scp -r /Users/bencaogangmu/workcopy/datasets/CASIA_HWDB dc2-user@116.85.33.34:~/workcopy/datasets/CASIA_HWDB
+
+
+复制文件到云端
+scp /Users/bencaogangmu/workcopy/PConv-Keras-master/libs/pconv_model.py dc2-user@116.85.33.34:~/workcopy/PConv-Keras-master/libs/pconv_model.py
+
