@@ -39,7 +39,7 @@ from libs.util import MaskGenerator
 #plt.ioff()
 
 # SETTINGS
-data_dir = r'../datasets/CASIA_HWDB/'
+data_dir = r'../../datasets/CASIA_HWDB/'
 TRAIN_DIR = os.path.join(data_dir, 'images')
 VAL_DIR = os.path.join(data_dir, 'images')
 TEST_DIR = os.path.join(data_dir, 'images')
@@ -173,6 +173,13 @@ model = PConvUnet()
 
 
 FOLDER = './data/logs/word'
+
+
+batch = next(train_generator)
+(masked, mask), ori = batch
+#Model(inputs=[inputs_img, inputs_mask], outputs=outputs)
+model.train_on_batch([masked, mask], ori)
+
 
 # Run training for certain amount of epochs
 model.fit_generator(
