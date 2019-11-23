@@ -241,16 +241,6 @@ class PConvUnet(object):
         b = self.l1(P[:,:,1:,:], P[:,:,:-1,:])        
         return a+b
 
-    def train_on_batch(self, inputs, outputs):
-        """Fit the U-Net to a (images, targets) generator
-
-        Args:
-            generator (generator): generator supplying input image & mask, as well as targets.
-            *args: arguments to be passed to fit_generator
-            **kwargs: keyword arguments to be passed to fit_generator
-        """
-        self.model.train_on_batch(inputs, outputs)
-        
     def fit_generator(self, generator, *args, **kwargs):
         """Fit the U-Net to a (images, targets) generator
 
@@ -263,7 +253,6 @@ class PConvUnet(object):
             generator,
             *args, **kwargs
         )
-
         
     def summary(self):
         """Get summary of the UNet model"""
